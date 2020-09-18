@@ -5,11 +5,14 @@ A python API interface for [SeetaFace2](https://github.com/seetafaceengine/Seeta
 ## Installation
 ### Environment
    * [x] opencv3.x
-   * [x] ubuntu 16.04/18.04
-   * [x] python 2.7.x/3.5.x
+   * [x] ubuntu 16.04/18.04/20.04
+   * [x] python 2.7.x/3.5.x/3.7.x
 ### Prerequisite
 ```bash
 sudo pip install opencv-python opencv-contrib-python
+
+[ubuntu-20.04]
+sudo apt-get install libopencv-dev python3-opencv python-numpy
 
 [ubuntu-18.04]
 sudo apt-get install libopencv-dev
@@ -25,7 +28,7 @@ cd pyseeta2
 git submodule add  https://github.com/pybind/pybind11.git pybind11
 git submodule add  https://github.com/gaojunying/SeetaFace2.git SeetaFace2
 
-[SeetaFace2](optional)
+[SeetaFace2]
 cd SeetaFace2
 mkdir build
 cd build
@@ -44,7 +47,11 @@ git checkout tags/v2.4.3
 cd ..
 
 [install]
+cd /usr/include
+sudo cp -r /usr/include/opencv4/opencv2 /usr/include/opencv2
+cd /YOURDIR/pyseeta2
 sudo make install
+# makefile中的python命令在anaconda环境下必须写明确具体环境的dir
 ```
 
 ## Example

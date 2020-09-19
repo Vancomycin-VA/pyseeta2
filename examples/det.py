@@ -1,11 +1,11 @@
 import seetaface
 import cv2
 
-root = 'examples/example1.jpg'
+root = './example1.jpg'
 
 
-fd = seetaface.FaceDetector('models/fd_2_00.dat')
-fl = seetaface.FaceLandmarker('models/pd_2_00_pts81.dat')
+fd = seetaface.FaceDetector('../models/fd_2_00.dat')
+fl = seetaface.FaceLandmarker('../models/pd_2_00_pts81.dat')
 print("model loaded")
 im = cv2.imread(root)
 image = seetaface.SeetaImage(im)
@@ -21,6 +21,6 @@ for face in faces:
     for p in points:
         cv2.circle(im, (int(p.x), int(p.y)), 2, (0,0,255), -1)
 
-cv2.imwrite('examples/example1_result.jpg', im)
+cv2.imwrite('example1_result.jpg', im)
 cv2.imshow('win', im)
 cv2.waitKey(0)
